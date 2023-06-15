@@ -115,12 +115,3 @@ def get_response(user_input):
     split_message = re.split(r'\s+|[,;?.-]\s*', user_input.lower())
     response = check_all_messages(split_message)
     return response
-
-
-def chat_with_bot():
-    while True:
-        user_input = input('You: ')
-        print('Bot: ' + get_response(user_input))
-
-if __name__ == '__main__':
-    chat_with_bot()
