@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$6@+c8eg!89z*_&wt!uabx$*a!mrp%fvls&t&&8lnsp43oai+4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'chatbot'
+    'chatbot',
+    'corsheaders'
+
     
 ]
 
@@ -50,6 +52,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+# CORS_ORIGINS_ALLOW_ALL = True
+CORS_ALLOWED_ORIGINS = [
+    "http://192.168.1.64:3000",
+    "http://localhost:3000",
+    "http://192.168.1.65:3000",
+    # ... other allowed origins
 ]
 
 ROOT_URLCONF = 'Chatbot_with_api.urls'
